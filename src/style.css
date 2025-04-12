@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import "tailwindcss";
+
+
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1em;
+  font-weight: 400;
+}
+
+body {
+  font-size: 14px;
+  background-color: #f5f5f7;
+}
+
+@theme {
+  --color-primary: #5641f3;
+  --color-primary-400: #4d3bdb;
+  --color-primary-300: #ddd9fd;
+  --color-primary-200: #ebe8fe;
+
+  --color-font: #373542;
+  --color-font-grey: #605c7a;
+  --breakpoint-custom: 61.875rem
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-primary-400 px-4 py-2 h-9 transition-[height] hover:h-[42px] hover:py-2.5 rounded-xl text-white duration-300 ease-linear origin-center
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+#app {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
