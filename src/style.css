@@ -21,7 +21,8 @@ body {
 
   --color-font: #373542;
   --color-font-grey: #605c7a;
-  --breakpoint-custom: 61.875rem
+  --breakpoint-custom: 61.875rem;
+  --radius-large: 18px;
 }
 
 button {
@@ -29,7 +30,15 @@ button {
 }
 
 .btn-primary {
-  @apply bg-primary-400 px-4 py-2 h-9 transition-[height] hover:h-[42px] hover:py-2.5 rounded-xl text-white duration-300 ease-linear origin-center
+  @apply bg-primary-400 rounded-xl text-white
+}
+
+.btn-login {
+  @apply px-4 py-2 h-9 transition-[height] hover:h-[42px] hover:py-2.5
+}
+
+.base-transition {
+  @apply duration-300 ease-linear;
 }
 
 button:focus,
@@ -42,5 +51,4 @@ button:focus-visible {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
 }
