@@ -1,18 +1,25 @@
 <template>
-    <div class="flex items-center justify-between py-2 gap-16">
+    <div
+        class="flex items-center justify-between py-2 gap-16 bg-white px-5 md:bg-[#f5f5f7]"
+    >
         <img src="@/assets/droip.svg" alt="Droip logo" />
         <div
-            class="custom:flex items-center justify-between flex-1 hidden h-11"
+            class="custom:flex items-center justify-between flex-1 hidden h-12"
         >
             <!-- navigation buttons -->
             <div class="flex items-center gap-3.5 text-[14px]">
                 <div
-                    class="group p-2.5 flex items-center cursor-pointer first:text-black nth-[2]:text-black text-font-grey"
+                    class="relative group p-2.5 flex items-center cursor-pointer first:text-black nth-[2]:text-black text-font-grey"
                     :class="{ 'gap-1': hasDropdown }"
                     v-for="{ label, hasDropdown, links } in navigationLinks"
                     :key="label"
+                    @mouseenter="toggleDropdownState(label as ILabels)"
+                    @mouseleave="closeModal(label as ILabels)"
                 >
-                    <a href="#" class="font-medium capitalize">
+                    <a
+                        href="#"
+                        class="font-medium capitalize group-hover:text-black"
+                    >
                         {{ label }}
                     </a>
                     <BsChevronDown
@@ -21,14 +28,47 @@
                         v-if="hasDropdown"
                     />
 
-                    <div class="bg-purple rounded-lg"></div>
+                    <Transition name="dropBottom" mode="out-in">
+                        <div
+                            v-if="isHoverActive(label as ILabels) && hasDropdown"
+                            @mouseleave="closeModal(label as ILabels)"
+                            class="modal absolute grid grid-cols-2 gap-[18px] top-full bg-white w-[674px] z-30 p-6 rounded-large"
+                        >
+                            <div
+                                class="w-full"
+                                v-for="link in links"
+                                :key="link.title"
+                            >
+                                <div
+                                    class="flex items-start gap-6 p-4 rounded-[16px] hover:bg-primary-200"
+                                >
+                                    <img
+                                        :src="link.icon"
+                                        :alt="`${link.title} icon representation`"
+                                    />
+                                    <div class="space-y-0.5">
+                                        <p
+                                            class="text-base/[22px] font-medium text-black"
+                                        >
+                                            {{ link.title }}
+                                        </p>
+                                        <span class="text-xs">{{
+                                            link.description
+                                        }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Transition>
                 </div>
             </div>
             <!-- auth buttons -->
             <div class="flex items-center gap-4">
                 <button class="p-2.5 text-font hover:text-black">Login</button>
                 <div>
-                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-primary btn-login base-transition">
+                        Get Started
+                    </button>
                 </div>
             </div>
         </div>
@@ -61,7 +101,15 @@ import featureIcon from "@/assets/icons/feature.svg";
 import contactIcon from "@/assets/icons/contact.svg";
 import { ref } from "vue";
 
+type ILabels = "product" | "resources" | "support";
+
 const showDropdown = ref(false);
+const dropdownStates = ref({
+    product: false,
+    resources: false,
+    support: false,
+});
+
 const navigationLinks = [
     {
         label: "home",
@@ -176,9 +224,25 @@ const navigationLinks = [
     },
 ];
 
+const isHoverActive = (state: ILabels) => {
+    return dropdownStates.value[state];
+};
+
+const toggleDropdownState = (state: ILabels) => {
+    dropdownStates.value[state] = !dropdownStates.value[state];
+};
+
+const closeModal = (state: ILabels) => {
+    dropdownStates.value[state] = false;
+};
+
 const toggleDropdown = () => {
     showDropdown.value = !showDropdown.value;
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.modal {
+    margin-top: 12px;
+}
+</style>
