@@ -25,12 +25,12 @@
                         simplifies website creation with powerful capabilities.
                     </p>
                 </div>
-                <div
+                <button
                     class="px-6 py-[11px] h-11 font-semibold rounded-[18px] text-primary gap-1.5 bg-primary-200 text-base/[30px] flex items-center justify-center hover:bg-primary-300"
                 >
                     <p>Watch Intro</p>
                     <img :src="videoIcon" alt="video icon" />
-                </div>
+                </button>
 
                 <div class="h-[52px] flex items-center justify-center">
                     <button
