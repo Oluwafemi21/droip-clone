@@ -18,6 +18,7 @@ body {
   --color-primary-400: #4d3bdb;
   --color-primary-300: #ddd9fd;
   --color-primary-200: #ebe8fe;
+  --color-primary-100: #dcd6fb;
 
   --color-font: #373542;
   --color-font-grey: #605c7a;
@@ -30,25 +31,26 @@ button {
 }
 
 .btn-primary {
-  @apply bg-primary-400 rounded-xl text-white
+  @apply hover:bg-primary-400 text-white bg-primary
 }
 
 .btn-login {
-  @apply px-4 py-2 h-9 transition-[height] hover:h-[42px] hover:py-2.5
+  @apply px-4 py-2 h-9 transition-[height] hover:h-[42px] hover:py-2.5 rounded-xl;
 }
 
 .base-transition {
   @apply duration-300 ease-linear;
 }
 
+/* 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 
-#app {
-  max-width: 1440px;
+.main-container {
+  max-width: 1380px;
   width: 100%;
   margin: 0 auto;
 }

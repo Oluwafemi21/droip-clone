@@ -32,11 +32,9 @@
                     <img :src="videoIcon" alt="video icon" />
                 </div>
 
-                <div
-                    class="h-[52px] flex items-center justify-center rounded-[18px]"
-                >
+                <div class="h-[52px] flex items-center justify-center">
                     <button
-                        class="cc relative w-full h-11 hover:h-[52px] transition-[height] base-transition btn-primary text-lg/[28px] group flex items-center justify-center gap-1.5"
+                        class="cc relative w-full h-11 rounded-[18px] hover:gap-2.5 hover:h-[52px] transition-[height] base-transition btn-primary text-lg/[28px] group flex items-center justify-center gap-1.5"
                     >
                         <p class="text-lg/[28px]">Get started with Droip</p>
                         <div class="chevron">
@@ -60,10 +58,6 @@ import { HiOutlineChevronRight } from "vue-icons-plus/hi";
     display: block;
 }
 
-.cc:hover > .chevron {
-    margin-left: 7px;
-}
-
 .cc:hover > .chevron > .chevy {
     transition-delay: 10ms;
     transform: translateX(0px);
@@ -79,7 +73,7 @@ import { HiOutlineChevronRight } from "vue-icons-plus/hi";
     bottom: 48%;
     top: 48%;
     transform: translateY(2px);
-    transition: transform 350ms ease-in alternate;
+    transition: transform 500ms ease-in-out 0.1s;
     display: none;
 }
 </style>

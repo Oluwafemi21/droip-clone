@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex items-center justify-between py-2 gap-16 bg-white px-5 md:bg-[#f5f5f7]"
+        class="w-full sticky top-0 left-0 right-0 z-10 flex items-center justify-between py-2 gap-16 bg-white/65 custom:px-22 px-5 md:bg-[#f5f5f7]/65"
     >
         <img src="@/assets/droip.svg" alt="Droip logo" />
         <div
