@@ -100,7 +100,7 @@
 </template>
 
 <script setup lang="ts">
-import { animate, LayoutGroup, motion, Motion } from "motion-v";
+import { LayoutGroup, Motion } from "motion-v";
 import { ref } from "vue";
 import { FaArrowRight } from "vue-icons-plus/fa";
 import { TbPointFilled } from "vue-icons-plus/tb";
