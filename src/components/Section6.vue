@@ -1,17 +1,19 @@
 <template>
-    <div class="h-screen main-container px-5 pt-[208px]">
+    <div class="h-screen main-container px-5 pt-[100px] custom:pt-[208px]">
         <div
-            class="flex flex-col gap-4 custom:gap-0 custom:flex-row justify-end custom:justify-between"
+            class="flex flex-col gap-9 custom:flex-row justify-end custom:justify-between"
         >
             <div class="max-w-[600px] w-full">
                 <h2
                     class="lg:text-8xl/[105px] text-[46px]/[1.1em] tracking-tighter font-medium"
                 >
-                    Create <br class="custom:block hidden" />
+                    Create <br />
                     pixel-perfect accuracy in the atomic level
                 </h2>
             </div>
-            <div class="image-container flex flex-col gap-5 w-[235px] mx-auto">
+            <div
+                class="image-container flex flex-col gap-5 w-[235px] mx-auto order-3 custom:order-2"
+            >
                 <div v-for="(image, index) in verticalImages">
                     <img
                         class="vertical-image"
@@ -22,10 +24,10 @@
                 </div>
             </div>
             <div
-                class="flex flex-col gap-4.5 justify-end max-w-[316px] w-full order-2 custom:order-3"
+                class="flex flex-col gap-4.5 justify-end max-w-[500px] custom:max-w-[316px] w-full order-2 custom:order-3"
             >
                 <img class="rotate" :src="rotatorIcon" alt="Rotating icon" />
-                <p class="custom:text-2xl/[28px] -tracking-[0.5px] text-lg/6">
+                <p class="md:text-2xl/[28px] -tracking-[0.5px] text-lg/6">
                     Create your website from the ground up with complete control
                     over every element, down to the smallest detail.
                 </p>

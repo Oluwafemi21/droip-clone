@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-primary-200 rounded-3xl custom:py-12 custom:pl-12 py-8 custom:pr-0 px-4.5 flex flex-col custom:flex-row gap-x-10"
+        class="bg-primary-200 custom:rounded-3xl custom:py-12 custom:pl-12 py-8 custom:pr-0 px-4.5 flex flex-col custom:flex-row gap-x-10"
     >
         <div class="max-w-xs w-full flex flex-col justify-between">
             <h3

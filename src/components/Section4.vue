@@ -1,7 +1,7 @@
 <template>
     <div class="custom:py-32 py-16 px-5">
         <h2
-            class="lg:text-8xl/[105px] custom:text-[46px] text-[11vw] leading-[1.1em] tracking-tighter font-medium"
+            class="lg:text-8xl/[105px] text-[46px] leading-[1.1em] tracking-tighter font-medium"
         >
             Craft engaging and <br class="hidden custom:block" />
             immersive interactions
@@ -10,13 +10,16 @@
         <div
             class="flex flex-row-reverse items-start mt-[125px] justify-between"
         >
-            <section class="flex-1 custom:max-w-[400px]">
-                <ul>
+            <section class="flex-1 custom:max-w-[450px]">
+                <ul class="space-y-10">
                     <LayoutGroup>
                         <li
                             v-for="content in contents"
                             :key="content.id"
-                            class="flex flex-col text-left"
+                            class="flex flex-col text-left relative"
+                            :class="{
+                                active: isActiveSection(content.id),
+                            }"
                         >
                             <div
                                 @click="activeContent = content.id"
@@ -44,10 +47,7 @@
 
                                 <button
                                     @click="activeContent = content.id"
-                                    :class="{
-                                        active: isActiveSection(content.id),
-                                    }"
-                                    class="circle-dot flex-1 text-left relative pb-11 transition duration-500 ease-linear nth-[3]:bg-red-600"
+                                    class="circle-dot pb-6 flex-1 text-left relative transition duration-500 ease-linear nth-[3]:bg-red-600"
                                 >
                                     <p
                                         class="-tracking-[1.3px] text-2xl/7 custom:text-[32px]/[38px] font-semibold text-font opacity-50 transition-[opacity] duration-500 scale-75 origin-left"
@@ -63,7 +63,7 @@
                                         :layout="true"
                                     >
                                         <span
-                                            class="text-base/[22px] text-font my-6 inline-block"
+                                            class="text-base/[22px] text-font mb-6 inline-block max-w-[300px] w-full"
                                             >{{ content.description }}</span
                                         >
 
@@ -80,7 +80,7 @@
                 </ul>
             </section>
             <section
-                class="hidden custom:block bg-primary-300 static rounded-2xl custom:w-[738px] transform-3d -right-5 custom:h-[538px] w-full overflow-hidden"
+                class="hidden custom:block bg-primary-300 static rounded-2xl custom:w-[55%] transform-3d -right-5 custom:h-[538px] w-full overflow-hidden"
             >
                 <img
                     class="object-cover h-full w-full rounded-2xl image"
@@ -141,26 +141,27 @@ const contents = [
     /* transition: background-color 400ms ease-in-out; */
 }
 
-.circle-dot::after {
+li::after {
     content: "";
     position: absolute;
-    height: calc(100% - 38px);
+    height: calc(100%);
     width: 2px;
     background-color: var(--color-primary-100);
-    right: calc(100% + 29px + 17px);
+    /* right: calc(100% + 29px + 17px); */
+    left: 17px;
     /* transition: height 300ms ease-in-out; */
-    bottom: 0px;
+    top: 38px;
 }
 
 li:nth-child(4) .circle-dot {
     padding-bottom: 0px;
 }
 
-li:nth-child(4) .circle-dot::after {
+li:nth-child(4)::after {
     height: 0px;
 }
 
-li:nth-child(4) .circle-dot.active::after {
+li:nth-child(4).active::after {
     height: calc(100% - 38px);
 }
 

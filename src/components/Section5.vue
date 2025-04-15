@@ -1,8 +1,8 @@
 <template>
     <div class="bg-black h-[200vh] overflow-y-scroll custom:py-32 py-16">
-        <div class="main-container px-5">
+        <div class="main-container custom:px-5">
             <h2
-                class="text-white lg:text-8xl/[105px] text-[46px]/[1.1em] tracking-tighter capitalize font-semibold mb-24"
+                class="text-white px-5 lg:text-8xl/[105px] text-[46px]/[1.1em] tracking-tighter capitalize font-semibold mb-16 custom:mb-24"
             >
                 Scale your <br class="hidden lg:block" />
                 business with
